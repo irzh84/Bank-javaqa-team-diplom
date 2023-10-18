@@ -76,12 +76,15 @@ public class CreditAccount extends Account {
      * числу через отбрасывание дробной части (так и работает целочисленное деление).
      * Пример: если на счёте -200 рублей, то при ставке 15% ответ должен быть -30.
      * Пример 2: если на счёте 200 рублей, то при любой ставке ответ должен быть 0.
+     *
      * @return
      */
     @Override
     public int yearChange() {
         return balance / 100 * rate;
     }
+
+
 
     public int getCreditLimit() {
         return creditLimit;
