@@ -249,13 +249,13 @@ public class SavingAccountTest {
     @Test
     public void successfulYearChangeTest() {
         SavingAccount account = new SavingAccount(
-                2_000,
+                50,
                 0,
                 10_000,
                 5
         );
 
-        Assertions.assertEquals(100, account.yearChange());
+        Assertions.assertEquals(2, account.yearChange());
     }
 
     @Test
@@ -296,6 +296,7 @@ public class SavingAccountTest {
         Assertions.assertEquals(500, account.yearChange());
 
     }
+
 
     @Test
     public void successfulYearChangeZeroPercentAtMinBalanceTest() {
