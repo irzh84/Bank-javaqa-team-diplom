@@ -50,7 +50,7 @@ public class CreditAccountTest {
     @Test
     public void shouldPaySucsess() {
         CreditAccount account = new CreditAccount(
-                5000,
+                5_000,
                 10_000,
                 15
         );
@@ -60,7 +60,7 @@ public class CreditAccountTest {
         Assertions.assertEquals(3_000, account.getBalance());
     }
 
-    // баг на баланс равен отрицательтельной сумме покупки
+    // баг на баланс равен отрицательной сумме покупки
     // баланс = баланс - сумма покупки
 
     @Test
@@ -117,7 +117,7 @@ public class CreditAccountTest {
         Assertions.assertEquals(-4, account.yearChange());
     }
 
-    // баг при балансе до 100, отбрасывается дробная часть и далее идет умножение нуля на ставку
+    // баг при балансе до -100, отбрасывается дробная часть и далее идет умножение нуля на ставку
     // решение  double yearChangeDoble = (double) balance / 100 * rate;
     //          return (int) yearChangeDoble;
 
@@ -133,5 +133,7 @@ public class CreditAccountTest {
     }
 
 // баг на при положительном балансе сумма процентов не равна 0
+
+
 
 }
