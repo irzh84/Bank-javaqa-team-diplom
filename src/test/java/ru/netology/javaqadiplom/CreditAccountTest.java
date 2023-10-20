@@ -17,7 +17,6 @@ public class CreditAccountTest {
             account.getBalance();
         });
     }
-// баг начальный баланс не может быть отрицательным
 
     @Test
     public void shouldThrowExceptionToNegativeCreditLimit() {
@@ -31,7 +30,6 @@ public class CreditAccountTest {
             account.getCreditLimit();
         });
     }
-// баг кредитный лимит не может быть отрицательным
 
     @Test
     public void shouldThrowExceptionToNegativeRate() {
@@ -45,7 +43,6 @@ public class CreditAccountTest {
             account.getRate();
         });
     }
-// баг ставка кредитования не может быть отрицательной
 
     @Test
     public void shouldPaySucsess() {
@@ -60,9 +57,6 @@ public class CreditAccountTest {
         Assertions.assertEquals(3_000, account.getBalance());
     }
 
-    // баг на баланс равен отрицательтельной сумме покупки
-    // баланс = баланс - сумма покупки
-
     @Test
     public void shouldPayAmountMoreCreditLimit() {
         CreditAccount account = new CreditAccount(
@@ -75,9 +69,6 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(5_000, account.getBalance());
     }
-
-    // баг на баланс меняется при превышении кредитного лимита
-    // баланс должен не меняться, баланс = баланс
 
     @Test
     public void shouldAddToPositiveBalance() {
@@ -92,8 +83,18 @@ public class CreditAccountTest {
         Assertions.assertEquals(4_000, account.getBalance());
     }
 
-    // баг на начальный баланс не увеличивается на сумму пополнения
-    // баланс = баланс + сумма пополнения
+    @Test
+    public void shouldAddZeroBalance() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        account.add(3_000);
+
+        Assertions.assertEquals(3_000, account.getBalance());
+    }
 
     @Test
     public void calculatePercentNegativeBalance() {
@@ -117,10 +118,6 @@ public class CreditAccountTest {
         Assertions.assertEquals(-4, account.yearChange());
     }
 
-    // баг при балансе до 100, отбрасывается дробная часть и далее идет умножение нуля на ставку
-    // решение  double yearChangeDoble = (double) balance / 100 * rate;
-    //          return (int) yearChangeDoble;
-
     @Test
     public void calculatePercentPositiveBalance() {
         CreditAccount account = new CreditAccount(
@@ -132,6 +129,15 @@ public class CreditAccountTest {
         Assertions.assertEquals(0, account.yearChange());
     }
 
-// баг на при положительном балансе сумма процентов не равна 0
+    @Test
+    public void calculateZeroPercentPositiveBalance() {
+        CreditAccount account = new CreditAccount(
+                200,
+                5_000,
+                0
+        );
+
+        Assertions.assertEquals(0, account.yearChange());
+    }
     
 }
