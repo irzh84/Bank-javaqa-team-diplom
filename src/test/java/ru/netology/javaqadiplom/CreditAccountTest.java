@@ -64,7 +64,6 @@ public class CreditAccountTest {
         Assertions.assertEquals(5_000, account.getBalance());
     }
 
-<<<<<<< HEAD
     @Test
     public void shouldPaySuccessBalanceEqualToCreditLimit() {
         CreditAccount account = new CreditAccount(
@@ -157,8 +156,6 @@ public class CreditAccountTest {
         Assertions.assertEquals(5_000, account.getBalance());
     }
 
-=======
->>>>>>> f8a11a533ffde5dbc9bb94a8e50f3f3258299211
     @Test
     public void shouldAddToPositiveBalance() {
         CreditAccount account = new CreditAccount(
@@ -172,8 +169,6 @@ public class CreditAccountTest {
         Assertions.assertEquals(4_000, account.getBalance());
     }
 
-<<<<<<< HEAD
-=======
     @Test
     public void shouldAddZeroBalance() {
         CreditAccount account = new CreditAccount(
@@ -187,7 +182,6 @@ public class CreditAccountTest {
         Assertions.assertEquals(3_000, account.getBalance());
     }
 
->>>>>>> f8a11a533ffde5dbc9bb94a8e50f3f3258299211
     @Test
     public void shouldAddToNegativeBalance() {
         CreditAccount account = new CreditAccount(
@@ -215,7 +209,6 @@ public class CreditAccountTest {
         Assertions.assertEquals(3_000, account.getBalance());
     }
 
-<<<<<<< HEAD
     @Test
     public void shouldAddNegativeAmount() {
         CreditAccount account = new CreditAccount(
@@ -242,8 +235,6 @@ public class CreditAccountTest {
         Assertions.assertEquals(1_000, account.getBalance());
     }
 
-=======
->>>>>>> f8a11a533ffde5dbc9bb94a8e50f3f3258299211
     @Test
     public void calculatePercentPositiveBalance() {
         CreditAccount account = new CreditAccount(
@@ -256,7 +247,6 @@ public class CreditAccountTest {
     }
 
     @Test
-<<<<<<< HEAD
     public void calculatePercentNegativeBalance() {
         CreditAccount account = new CreditAccount(
                 0,
@@ -296,20 +286,18 @@ public class CreditAccountTest {
     public void calculatePercentRateZero() {
         CreditAccount account = new CreditAccount(
                 0,
-=======
+
     public void calculateZeroPercentPositiveBalance() {
         CreditAccount account = new CreditAccount(
                 200,
->>>>>>> f8a11a533ffde5dbc9bb94a8e50f3f3258299211
+
                 5_000,
                 0
         );
 
         Assertions.assertEquals(0, account.yearChange());
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> f8a11a533ffde5dbc9bb94a8e50f3f3258299211
+
+}
 }
 
