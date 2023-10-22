@@ -258,6 +258,7 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(-4, account.yearChange());
     }
+
     @Test
     public void calculatePercentBalanceZero() {
         CreditAccount account = new CreditAccount(
